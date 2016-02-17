@@ -110,6 +110,9 @@ class MailgunTransport extends AbstractTransport {
             throw $e;
         }
 
-        return $result;
+        return array(
+			'headers' => $email->message(CakeEmail::MESSAGE_TEXT),
+			'message' => $email->message(CakeEmail::MESSAGE_TEXT)
+		);
     }
 }
